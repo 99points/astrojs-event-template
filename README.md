@@ -13,12 +13,6 @@ This project is an event website template built using Astro 3.0 and TailwindCSS.
 
 To get started with this project, clone the repository and install the dependencies:
 
-```bash
-git clone https://github.com/yourusername/astrojs-event-template.git
-cd astrojs-event-template
-npm install
-
-
 ## License
 This project is licensed under the MIT License. 
 
