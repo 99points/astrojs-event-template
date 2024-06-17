@@ -1,0 +1,58 @@
+---
+import PageHeader from "../components/PageHeader.astro";
+import PageFooter from "../components/PageFooter.astro";
+
+import BannerCard from "../components/BannerEvents.astro";
+import { playlists, morePlaylists } from "../lib/data";
+
+import HomePagePosts from "../components/Blog/HomePagePosts.astro";
+import EventsTable from "../components/EventsTable.astro";
+import Ticker from "../components/Ticker.astro";
+
+import Layout from "../layouts/Layout.astro";
+
+---
+
+<Layout title="Home">
+  <div
+    id="playlist-container"
+    class="relative transition-all duration-1000 bg-context"
+    style="min-height:300px;--context-color:#000000;"
+  >
+    <PageHeader />
+
+    <section class="text-center py-24 bg-black relative">
+      <div class="absolute inset-0 w-full z-10  bg-black opacity-50"></div>
+    
+      <img src="/sport.jpg" alt="Background Image" class="absolute inset-0 w-full h-full object-cover opacity-40">
+      <div class="relative z-10 max-w-4xl mx-auto">
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-customYellow">Thrilling Sports Adventures</h1>
+        <p class="mt-4 text-sm md:text-base lg:text-lg text-gray-300 max-w-3xl mx-auto">
+          Witness the thrill of live sports events, where passion and excitement collide. Cheer for your favorite teams and athletes as they compete for glory. Join us for an adrenaline-pumping experience like no other.
+        </p>
+        <div class="mt-8 flex justify-center space-x-4">
+        </div>
+      </div>
+      <!-- Thumbnails -->
+      <div class="px-6 relative z-10 mt-12 max-w-7xl mx-auto">
+        <div class="flex flex-wrap mt-6 gap-4">
+          {morePlaylists.map((playlist) => <BannerCard playlist={playlist} />)}
+        </div>
+      </div>
+    </section>
+
+    <Ticker />
+    
+    <h2 class="text-4xl my-8 md:text-5xl lg:text-6xl font-bold text-white text-center mt-12">UPCOMING SPORTS</h2>
+
+    <EventsTable />
+
+    <p class="mt-4 max-w-2xl mx-auto bg-black px-6 py-12 text-left">
+      Experience the thrill of live music, celebrate diverse cultures, and immerse yourself in captivating art. Get ready to embark on an extraordinary journey of entertainment.
+    </p>
+   
+    <HomePagePosts />
+
+  <PageFooter />
+  
+</Layout>

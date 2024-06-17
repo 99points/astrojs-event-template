@@ -1,0 +1,105 @@
+---
+interface Props {
+  title: string;
+  image?: string;
+}
+
+const {
+  title = "Home",
+  image = "",
+} = Astro.props;
+
+import { ViewTransitions } from "astro:transitions";
+import "./layout.css";
+import PageFooter from "../components/PageFooter.astro";
+
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Event Website Template built with Astro (3.0)"
+    />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} | Event Website Template built with Astro (3.0)</title>
+    <meta property="og:image" content={image} />
+    <meta name="twitter:image" content={image} />
+    <ViewTransitions fallback="none" />
+    <!-- Other head elements -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+  <body class="dark">
+    <div class="relative h-screen gap-2 flex items-stretch">
+      <div class=" bg-zinc-900 flex-1 mx-auto overflow-y-auto">
+        <slot />
+      </div>
+    </div>
+    <div
+      id="not-support"
+      class="fixed hidden bg-red-700 bottom-0 inset-x-0 rounded-t-md text-center py-2 lg:py-4 z-50 font-semibold"
+    >
+      It seems your browser does not support view transitions yet :( try it
+      using chrome or edge.
+    </div>
+    <script is:inline defer>
+      function setContainerColor(dataColor) {
+        const playlistContainer = document.getElementById("playlist-container");
+        const currentColor = playlistContainer?.getAttribute("data-color");
+        if (dataColor && dataColor !== currentColor) {
+          playlistContainer?.style.setProperty("--context-color", dataColor);
+          playlistContainer?.setAttribute("data-color", dataColor);
+        }
+      }
+
+      window.coloradTimeout = null;
+      for (const playlist of document.querySelectorAll(".playlist-item")) {
+        playlist.addEventListener("mouseover", () =>
+          onMouseOverColorad(playlist)
+        );
+        playlist.addEventListener("mouseout", onMouseOutColorad);
+        playlist.addEventListener("focus", () => onMouseFocusColorad(playlist));
+        playlist.addEventListener("blur", onMouseOutColorad);
+      }
+
+      function onMouseFocusColorad(el) {
+        if (el) {
+          const dataColor = el.getAttribute("data-color");
+          if (!dataColor) return;
+          setContainerColor(dataColor);
+        }
+      }
+      function onMouseOverColorad(el) {
+        if (el) {
+          const dataColor = el.getAttribute("data-color");
+          if (!dataColor) return;
+          window.coloradTimeout = setTimeout(
+            () => setContainerColor(dataColor),
+            200
+          );
+        }
+      }
+      function onMouseOutColorad() {
+        if (window.coloradTimeout) {
+          clearTimeout(window.coloradTimeout);
+          window.coloradTimeout = null;
+        }
+      }
+    </script>
+    <script>
+      if (!document.startViewTransition) {
+        document.getElementById("not-support").classList.remove("hidden");
+      }
+      document.addEventListener("astro:page-load", () => {
+        for (const el of document.querySelectorAll(".el-to-fade")) {
+          el.classList.remove("scale-90");
+        }
+      });
+      
+    </script>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+---
+import Icon from "astro-icon";
+
+interface Props {
+  size?: "md" | "lg";
+}
+
+const { size = "md" } = Astro.props;
+---
+
+<span
+  class="bg-customYellow hover:scale-105 shadow-md shadow-black/40 rounded-full flex items-center justify-center text-black"
+  class:list={[size === "md" && "h-12 w-12", size === "lg" && "h-14 w-14"]}
+>
+  <Icon
+    name="mdi:eye"
+    class:list={[size === "md" && "h-8 w-8", size === "lg" && "h-10 w-10"]}
+  />
+</span>

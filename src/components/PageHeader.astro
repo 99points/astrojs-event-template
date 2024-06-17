@@ -1,0 +1,38 @@
+---
+import Icon from "astro-icon";
+---
+
+<div
+  class=" relative z-10 py-6 px-6 flex justify-between"
+  transition:name="page header"
+  transition:persist
+>
+  <a
+  href="/"
+  aria-label="go back to home page"
+  class="text-2xl font-bold text-white"
+  >
+  Astro Event
+  </a>
+  <nav>
+    <ul class="flex space-x-8 mt-1">
+      <li><a href="/" class="hover:text-customYellow">Home</a></li>
+      <li><a href="/concert" class="hover:text-customYellow">Concert</a></li>
+      <li><a href="/arts" class="hover:text-customYellow">Art</a></li>
+      <li><a href="/festival" class="hover:text-customYellow">Festival</a></li>
+      
+      <li><a href="/sport" class="hover:text-customYellow">Sport</a></li>
+    </ul>
+  </nav>
+  <div class="mt-1">
+    <a
+      target="_blank"
+      aria-label={"github repository"}
+      href="https://github.com/99points/astrojs-event-template"
+      class="text-gray-200 hover:text-white"
+    >
+      <Icon name="mdi:github" class="h-7 w-7" />
+    </a>
+  </div>
+
+</div>

@@ -1,0 +1,60 @@
+---
+const posts = [
+  {
+    title: "JAKARTA FESTIVAL 2024",
+    image: "/post1.jpg",
+    description: "An electrifying celebration of music, culture, and food in the heart of Jakarta."
+  },
+  {
+    title: "MUSIC FESTIVAL 2024",
+    image: "/post2.jpg",
+    description: "Join us for an unforgettable experience with live performances from top artists."
+  },
+  {
+    title: "BOGOR FESTIVAL 2024",
+    image: "/post3.jpg",
+    description: "Celebrate the vibrant arts and culture scene in Bogor with local and international acts."
+  },
+  {
+    title: "SUMMER VIBES 2024",
+    image: "/post1.jpg",
+    description: "Enjoy the best summer tunes and beach activities at this year's Summer Vibes festival."
+  },
+  {
+    title: "ROCK THE CITY",
+    image: "/post3.jpg",
+    description: "Get ready to rock with amazing performances from the best rock bands in town."
+  },
+  {
+    title: "ELECTRO NIGHT",
+    image: "/post2.jpg",
+    description: "Dance the night away with the hottest electronic music and stunning light shows."
+  },
+];
+
+---
+
+<section class="bg-black mt-12 text-white py-12">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+      <!-- First Column: Title, Image, and Button -->
+      <div class="flex flex-col items-center relative">
+        <h2 class="text-4xl font-bold mb-4">BLOG POSTS</h2>
+        <p>Dive with us along with the journey!</p>
+        <a href="#" class="absolute bottom-4  bg-customYellow text-black py-2 px-4 inline-block hover:bg-customYellowHover">
+          MORE POSTS &#8594;
+        </a>
+      </div>
+      <!-- Remaining Columns: Blog Posts -->
+      {posts.slice(0, 3).map(post => (
+        <div class="relative">
+          <img src={post.image} alt={post.title} class="w-full h-64 object-cover rounded">
+          <div class="absolute bottom-0 left-0 bg-black bg-opacity-70 text-white p-2">
+            <h3 class="font-bold">{post.title}</h3>
+            <p class="text-sm">{post.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
