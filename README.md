@@ -1,7 +1,26 @@
 # Event Website Template built with Astro (3.0) 
 
+This project is an event website template built using Astro 3.0 and TailwindCSS. It provides a modern, responsive design ideal for showcasing events, concerts, and festivals. The template is easy to customize and deploy, making it a great starting point for any event-based web project.
 
-Project description goes here.
+## Features
+
+- **Modern Design**: Sleek and contemporary design based on a template by Denanda Prayoga.
+- **Responsive Layout**: Fully responsive, ensuring a seamless experience on any device.
+- **Built with Astro**: Utilizes the power of Astro for fast performance and optimized builds.
+- **TailwindCSS Integration**: Styled using TailwindCSS for easy customization and utility-first CSS.
+
+## Installation
+
+To get started with this project, clone the repository and install the dependencies:
+
+```bash
+git clone https://github.com/yourusername/astrojs-event-template.git
+cd astrojs-event-template
+npm install
+
+## License
+This project is licensed under the MIT License. 
+
 
 ## Credits
 
