@@ -18,6 +18,7 @@ git clone https://github.com/yourusername/astrojs-event-template.git
 cd astrojs-event-template
 npm install
 
+
 ## License
 This project is licensed under the MIT License. 
 
