@@ -16,6 +16,8 @@ To get started with this project, clone the repository and install the dependenc
 ## License
 This project is licensed under the MIT License. 
 
+- npm install
+- npm run dev
 
 ## Credits
 
