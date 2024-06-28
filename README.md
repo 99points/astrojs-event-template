@@ -12,12 +12,11 @@ This project is an event website template built using Astro 3.0 and TailwindCSS.
 ## Installation
 
 To get started with this project, clone the repository and install the dependencies.
+- npm install
+- npm run dev
 
 ## License
 This project is licensed under the MIT License. 
-
-- npm install
-- npm run dev
 
 ## Credits
 
